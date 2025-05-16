@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Web Developer Portfolio - Neema Maisha">
+    <meta name="keywords" content="web development, front-end, portfolio, JavaScript, CSS, HTML">
+    <meta name="author" content="Neema Maisha">
+    <title>Neema Maisha | Portifolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero-bg.jpg') center/cover;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .projects {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .contact {
+            background: #2c3e50;
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        .cta-buttons a {
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            margin-top: 2rem;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">N<span style="color: black;">M</span> </div>
+            <ul class="nav-links">
+                <li ><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="survey.html">Survey</a></li>
+            </ul>
+            <button class="menu-toggle" id="toggle"  onclick="toggleMenu()">☰</button>
+
+             <button onclick="toggleDarkMode()" id="button" title="Toggle Mode" style="background-color: transparent; border:none; font-size:25px; cursor:pointer;">
+               <i class="fas fa-moon"></i>
+              
+
+             </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 id="greeting">Hello, I'm Neema Maisha</h1>
+                <p>Full-Stack Web Developer</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn">Contact Me</a>
+                    <a href="projects.html" class="btn">View Work</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="img/eCommerce.jpg" alt="E-commerce Platform">
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-stack shopping platform with React & Node.js</p>
+                        <button class="project-detail">View Details</button>
+                    </div>
+                </article>
+
+                 <article class="project-card">
+                    <img src="img/fitness.jpeg" alt="E-commerce Platform">
+                    <div class="project-info">
+                        <h3>Fitness Tracker App</h3>
+                        <p>Native Android application for tracking workout routines and nutrition plans.</p>
+                        <button class="project-detail">View Details</button>
+                    </div>
+                </article>
+
+
+                 <article class="project-card">
+                    <img src="img/events.jpeg" alt="E-commerce Platform">
+                    <div class="project-info">
+                        <h3>EventEase Manager</h3>
+                        <p>Plan, schedule, and manage events seamlessly.</p>
+                        <button class="project-detail">View Details</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-links">
+                <a href="mailto:neemamaisha@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/neema-maisha"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/NeemaMaisha"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </section>
+    </main>
+
+  
+    <footer>
+        <p>&copy; 2025 Neema Maisha. All rights reserved.</p>
+       
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greeting = document.getElementById('greeting');
+            let message = "Hello, I'm Neema Maisha";
+            
+            if (hour < 12) message = "Good Morning! I'm Neema Maisha";
+            else if (hour < 18) message = "Good Afternoon! I'm Neema Maisha";
+            else message = "Good Evening! I'm Neema Maisha";
+            
+            greeting.textContent = message;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const button = document.getElementById('button');
+            if (document.body.classList.contains('dark-mode')) {
+                button.innerHTML = ' <i class="fas fa-sun " style="color: #ffffff;"></i>';
+            } else {
+                button.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateGreeting();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Web Developer Portfolio - Neema Maisha">
+    <meta name="keywords" content="web development, front-end, portfolio, JavaScript, CSS, HTML">
+    <meta name="author" content="Neema Maisha">
+    <title>Neema Maisha | Portifolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .skills-list {
+            column-count: 2;
+            column-gap: 2rem;
+        }
+
+        .skills-list li {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid #2c3e50;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: #2c3e50;
+            border-radius: 50%;
+        }
+
+        .education {
+        padding: 2rem;
+        background: #f8f9fa;
+    }
+
+    .section-title {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+    }
+
+    .education-list {
+        list-style: none;
+        counter-reset: education-counter;
+        padding-left: 0;
+    }
+
+    .education-item {
+        counter-increment: education-counter;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .education-item::before {
+        content: counter(education-counter);
+        font-weight: bold;
+        color: #3498db;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .degree {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+
+    .degree-details {
+        list-style: none;
+        padding-left: 2rem;
+    }
+
+    .degree-details li {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .fa-university, .fa-star, .fa-award {
+        color: #3498db;
+    }
+
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-list {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <nav class="nav-container">
+            <div class="logo">N<span style="color: black;">M</span> </div>
+            <ul class="nav-links">
+                <li ><a href="index.html" >Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="survey.html">Survey</a></li>
+            </ul>
+            <button class="menu-toggle" id="toggle"  onclick="toggleMenu()">☰</button>
+
+             <button onclick="toggleDarkMode()" id="button" title="Toggle Mode" style="background-color: transparent; border:none; font-size:25px; cursor:pointer;">
+               <i class="fas fa-moon"></i>
+              
+
+             </button>
+        </nav>
+    </header>
+
+    <main class="container" style="padding: 30px; margin-top:30px;">
+        <section class="about-section">
+            <article class="personal-info">
+                <h1 style="position: relative; bottom: 40px;">About Me</h1>
+                <img src="img/eCommerce.jpg" alt="Neema Maisha Profile Picture" class="profile-img">
+                <p class="bio">Full-stack developer with 4+ years of experience building web applications. Passionate about creating efficient, scalable solutions with modern technologies.</p>
+                
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:neemamaisha@gmail.com">neemamaisha@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i>(+255) 715 465 810</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dodoma, Tanzania</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="professional-info">
+                <section class="skills">
+                    <h2>Technical Skills</h2>
+                    <ul class="skills-list">
+                        <li>Front-End Development
+                            <ul>
+                                <li>HTML5/CSS3</li>
+                                <li>JavaScript (ES6+)</li>
+                                <li>React & Redux</li>
+                            </ul>
+                        </li>
+                        <li>Back-End Development
+                            <ol>
+                                <li>Node.js</li>
+                                <li>Python/Django</li>
+                                <li>REST API Design</li>
+                            </ol>
+                        </li>
+                        <li>Databases
+                            <ul>
+                                <li>MySQL</li>
+                                <li>MongoDB</li>
+                                <li>PostgreSQL</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="experience">
+                    <h2>Professional Experience</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>Senior Developer @Tech Corp</h3>
+                            <p class="duration">2022 - Present</p>
+                            <ul>
+                                <li>Led team of 5 developers</li>
+                                <li>Implemented CI/CD pipeline</li>
+                                <li>Improved system performance by 40%</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Junior Developer @StartUp Inc</h3>
+                            <p class="duration">2020 - 2022</p>
+                            <ul>
+                                <li>Developed MVP for main product</li>
+                                <li>Optimized database queries</li>
+                                <li>Implemented authentication system</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+               <section class="education">
+    <h2 class="section-title">Education</h2>
+    <ol class="education-list">
+        <li class="education-item">
+            <h3 class="degree">Diploma of Information Technology</h3>
+            <ul class="degree-details">
+                <li class="institution">
+                    <i class="fas fa-university"></i>
+                    University of Dar es Salaam Computing Center
+                </li>
+                <li class="gpa">
+                    <i class="fas fa-star"></i>
+                    GPA: 3.8/4.0
+                </li>
+            </ul>
+        </li>
+        <li class="education-item">
+            <h3 class="degree">BSc Information Systems</h3>
+            <ul class="degree-details">
+                <li class="institution">
+                    <i class="fas fa-university"></i>
+                    University of Dodoma
+                </li>
+                <li class="achievement">
+                    <i class="fas fa-award"></i>
+                    Graduated with Honors
+                </li>
+            </ul>
+        </li>
+    </ol>
+</section>
+
+
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Neema Maisha. All rights reserved.</p>
+       
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greeting = document.getElementById('greeting');
+            let message = "Hello, I'm Neema Maisha";
+            
+            if (hour < 12) message = "Good Morning! I'm Neema Maisha";
+            else if (hour < 18) message = "Good Afternoon! I'm Neema Maisha";
+            else message = "Good Evening! I'm Neema Maisha";
+            
+            greeting.textContent = message;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const button = document.getElementById('button');
+            if (document.body.classList.contains('dark-mode')) {
+                button.innerHTML = ' <i class="fas fa-sun " style="color: #ffffff;"></i>';
+            } else {
+                button.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateGreeting();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
